@@ -24,29 +24,29 @@ ECSハンズオン用のNext.jsアプリケーションです。PostgreSQL RDS�
 
 `.env.sample` を `.env` にコピーして、RDSの接続情報を設定してください：
 
-\`\`\`bash
+```bash
 cp .env.sample .env
-\`\`\`
+```
 
 ### 2. ローカル開発
 
-\`\`\`bash
+```bash
 # 依存関係のインストール
 pnpm install
 
 # 開発サーバーの起動
 pnpm run dev
-\`\`\`
+```
 
 ### 3. Docker でのビルドと実行
 
-\`\`\`bash
+```bash
 # Docker イメージのビルド
 docker build -t ecs-nextjs-app .
 
 # コンテナの実行
 docker run -p 3000:3000 --env-file .env ecs-nextjs-app
-\`\`\`
+```
 
 ## API エンドポイント
 
@@ -65,13 +65,13 @@ docker run -p 3000:3000 --env-file .env ecs-nextjs-app
 
 ## データベーススキーマ
 
-\`\`\`sql
+```sql
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
   completed BOOLEAN DEFAULT FALSE,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-\`\`\`
+```
 
 アプリケーション起動時に自動的にテーブルが作成されます。
