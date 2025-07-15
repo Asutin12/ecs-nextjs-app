@@ -5,11 +5,11 @@ let pool: Pool | null = null
 export function getPool() {
   if (!pool) {
     pool = new Pool({
-      host: process.env.DB_HOST,
-      port: Number.parseInt(process.env.DB_PORT || "5432"),
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
+      host: process.env.POSTGRES_HOST,
+      port: Number.parseInt(process.env.POSTGRES_PORT || "5432"),
+      database: process.env.POSTGRES_DB,
+      user: process.env.POSTGRES_USER,
+      password: process.env.POSTGRES_PASSWORD,
       ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,
       max: 20,
       idleTimeoutMillis: 30000,
